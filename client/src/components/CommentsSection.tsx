@@ -66,9 +66,9 @@ export function CommentsSection({ postId }: CommentsSectionProps) {
           <button
             type="submit"
             className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-            disabled={createComment.isLoading}
+            disabled={createComment.isPending}
           >
-            {createComment.isLoading ? "Posting..." : "Post"}
+            {createComment.isPending ? "Posting..." : "Post"}
           </button>
         </form>
       )}
@@ -113,7 +113,7 @@ export function CommentsSection({ postId }: CommentsSectionProps) {
               <button
                 onClick={() => handleLikeComment(c._id)}
                 className={"hover:underline flex items-center gap-1"}
-                disabled={likeComment.isLoading}
+                disabled={likeComment.isPending}
               >
                 👍 {c.likes.length}
               </button>
@@ -131,7 +131,7 @@ export function CommentsSection({ postId }: CommentsSectionProps) {
                   <button
                     onClick={() => handleDeleteComment(c._id)}
                     className="hover:underline text-red-600"
-                    disabled={deleteComment.isLoading}
+                    disabled={deleteComment.isPending}
                   >
                     Delete
                   </button>
